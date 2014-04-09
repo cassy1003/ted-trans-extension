@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "TED Trans",
+    "version": "1.0",
+ 
+    "description": "",
+ 
+    "icons": {
+        "16": "imgs/ted_gree.jpeg",
+        "48": "imgs/ted_gree.jpeg",
+        "128": "imgs/ted_gree.jpeg"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["http://www.ted.com/talks/*/transcript*"],
+            "js": ["js/trans.js"]
+        }
+    ]
+}
