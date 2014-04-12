@@ -11,11 +11,33 @@
         "128": "imgs/ted_gree.jpeg"
     },
 
-    "content_scripts": [
-        {
-            "matches": ["http://www.ted.com/talks/*/transcript*"],
-            "js": ["js/trans.js"]
-            //"run_at": "document_start"
-        }
-    ]
+    "content_scripts": [{
+        "ids": ["aaaaa"],
+        "accepts_tls_channel_id": false,
+        "matches": [
+            "http://www.ted.com/talks/*/transcript*",
+            "https://www.ted.com/talks/*/transcript*"
+        ],
+        "js": [
+            "js/jquery-2.1.0-min.js",
+            "js/trans.js"
+        ]
+        //"run_at" : "document_idle"
+        //"run_at": "document_start"
+    }],
+    "background": {
+        // The background.page and background.scripts properties cannot be used at the same time.
+        //"page": "background.html",
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "tabs",
+        "http://*/*"
+    ],
+    "page_action": {
+        "default_icon": "imgs/ted-trans_icon19.png",
+        "default_title": "show",
+        "default_popup": "popup.html"
+    }
 }
