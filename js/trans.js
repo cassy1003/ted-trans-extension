@@ -20,10 +20,15 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendRes) {
 function renderTrans2(lang) {
   console.log(lang);
   $.get('https://www.ted.com/talks/subtitles/id/' + id + '/lang/' + lang, function(res){
+    var $para = $('.talk-transcript__para__text');
+    var paraCount = -1;
     $.each(res.captions, function(i, caption){
-      console.log(caption.startTime);
-      console.log(caption.duration);
-      console.log(caption.content);
+      // caption has startTime and duration and content, startofparagraph
+      if (caption.startOfParagraph) {
+        paraCount += 1;
+        $para.eq(paraCount).append('<div id="trans2-' + paraCount + '"></div>');
+      }
+      $('#trans2-' + paraCount).append('<span class="talk-transcript__fragment">' + caption.content + ' </span>');
     });
   });
 }
