@@ -12,11 +12,9 @@
     },
 
     "content_scripts": [{
-        "ids": ["aaaaa"],
-        "accepts_tls_channel_id": false,
         "matches": [
-            "http://www.ted.com/talks/*/transcript*",
-            "https://www.ted.com/talks/*/transcript*"
+            "http://www.ted.com/talks/*",
+            "https://www.ted.com/talks/*"
         ],
         "js": [
             "js/jquery-2.1.0-min.js",

@@ -28,5 +28,13 @@ chrome.runtime.onMessage.addListener(
       });
       sendRes('catched selected lang in background');
     }
+    if (req.name == 'getTransLangs') {
+      chrome.tabs.query({active: true, currentWindow: true}, function(tab){
+        chrome.tabs.sendMessage(tab[0].id, req, function(res){
+          langs = res;
+          sendRes(langs);
+        });
+      });
+    }
   }
 );
