@@ -7,8 +7,8 @@
  
     "icons": {
         "16": "imgs/ted_gree.jpeg",
-        "48": "imgs/ted_gree.jpeg",
-        "128": "imgs/ted_gree.jpeg"
+        "48": "imgs/ted_trans2_48.png",
+        "128": "imgs/ted_trans2_128.jpeg"
     },
 
     "content_scripts": [{
@@ -34,7 +34,7 @@
         "http://*/*"
     ],
     "page_action": {
-        "default_icon": "imgs/ted-trans_icon19.png",
+        "default_icon": "imgs/ted_trans2_19.png",
         "default_title": "show",
         "default_popup": "popup.html"
     }
